@@ -1,0 +1,26 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore vendor dependencies (if using Composer)
+vendor/
+
+# Ignore environment and config files
+.env
+config/database.php
+
+# Ignore IDE/project files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore log files
+*.log
+
+# Ignore uploads and cache (optional, comment out if you want to track uploads)
+uploads/
+cache/
+
+# Ignore node_modules if any
+node_modules/ 
