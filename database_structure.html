@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotive Database Structure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #444;
+            margin-top: 30px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: white;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .note {
+            background-color: #fff3cd;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Automotive Database Structure</h1>
+        
+        <div class="section">
+            <h2>1. User Management</h2>
+            
+            <h3>tbl_user</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>varchar(255)</td>
+                    <td>NOT NULL</td>
+                    <td>User's full name</td>
+                </tr>
+                <tr>
+                    <td>email</td>
+                    <td>varchar(255)</td>
+                    <td>NOT NULL, UNIQUE</td>
+                    <td>User's email address</td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td>varchar(255)</td>
+                    <td>NOT NULL</td>
+                    <td>Hashed password</td>
+                </tr>
+                <tr>
+                    <td>role</td>
+                    <td>varchar(20)</td>
+                    <td>NULL</td>
+                    <td>User's role</td>
+                </tr>
+                <tr>
+                    <td>phonenum</td>
+                    <td>varchar(20)</td>
+                    <td>NOT NULL</td>
+                    <td>Phone number</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Account creation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>tbl_worker</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>full_name</td>
+                    <td>varchar(255)</td>
+                    <td>NOT NULL</td>
+                    <td>Worker's full name</td>
+                </tr>
+                <tr>
+                    <td>username</td>
+                    <td>varchar(100)</td>
+                    <td>NOT NULL, UNIQUE</td>
+                    <td>Login username</td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td>varchar(255)</td>
+                    <td>NOT NULL</td>
+                    <td>Hashed password</td>
+                </tr>
+                <tr>
+                    <td>position</td>
+                    <td>enum('worker')</td>
+                    <td>NOT NULL</td>
+                    <td>Worker position</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Account creation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>tbl_admin</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>full_name</td>
+                    <td>varchar(255)</td>
+                    <td>NOT NULL</td>
+                    <td>Admin's full name</td>
+                </tr>
+                <tr>
+                    <td>username</td>
+                    <td>varchar(100)</td>
+                    <td>NOT NULL, UNIQUE</td>
+                    <td>Login username</td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td>varchar(255)</td>
+                    <td>NULL</td>
+                    <td>Hashed password</td>
+                </tr>
+                <tr>
+                    <td>position</td>
+                    <td>enum('admin','superadmin')</td>
+                    <td>NULL</td>
+                    <td>Admin position</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Account creation timestamp</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>2. Vehicle Management</h2>
+            
+            <h3>tbl_vehicles</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>vehicle_id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>user_id</td>
+                    <td>int(11)</td>
+                    <td>NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_user</td>
+                </tr>
+                <tr>
+                    <td>make</td>
+                    <td>varchar(100)</td>
+                    <td>NULL</td>
+                    <td>Vehicle make</td>
+                </tr>
+                <tr>
+                    <td>model</td>
+                    <td>varchar(100)</td>
+                    <td>NULL</td>
+                    <td>Vehicle model</td>
+                </tr>
+                <tr>
+                    <td>year</td>
+                    <td>int(11)</td>
+                    <td>NULL</td>
+                    <td>Vehicle year</td>
+                </tr>
+                <tr>
+                    <td>license_plate</td>
+                    <td>varchar(20)</td>
+                    <td>NULL</td>
+                    <td>License plate number</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Record creation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>car_brands</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>brand_name</td>
+                    <td>varchar(100)</td>
+                    <td>NOT NULL, UNIQUE</td>
+                    <td>Name of the car brand</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Record creation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>car_models</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>brand_id</td>
+                    <td>int(11)</td>
+                    <td>NOT NULL, FOREIGN KEY</td>
+                    <td>Reference to car_brands</td>
+                </tr>
+                <tr>
+                    <td>model_name</td>
+                    <td>varchar(100)</td>
+                    <td>NOT NULL</td>
+                    <td>Name of the car model</td>
+                </tr>
+                <tr>
+                    <td>year_from</td>
+                    <td>int(4)</td>
+                    <td>NULL</td>
+                    <td>Starting year of the model</td>
+                </tr>
+                <tr>
+                    <td>year_to</td>
+                    <td>int(4)</td>
+                    <td>NULL</td>
+                    <td>Ending year of the model</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Record creation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>tbl_info</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>userid</td>
+                    <td>int(11)</td>
+                    <td>NULL</td>
+                    <td>Reference to user</td>
+                </tr>
+                <tr>
+                    <td>car_brand</td>
+                    <td>varchar(100)</td>
+                    <td>NULL</td>
+                    <td>Car brand</td>
+                </tr>
+                <tr>
+                    <td>car_year</td>
+                    <td>varchar(10)</td>
+                    <td>NULL</td>
+                    <td>Car year</td>
+                </tr>
+                <tr>
+                    <td>car_model</td>
+                    <td>varchar(100)</td>
+                    <td>NULL</td>
+                    <td>Car model</td>
+                </tr>
+                <tr>
+                    <td>plate_number</td>
+                    <td>varchar(20)</td>
+                    <td>NULL</td>
+                    <td>License plate number</td>
+                </tr>
+                <tr>
+                    <td>service_date</td>
+                    <td>varchar(20)</td>
+                    <td>NULL</td>
+                    <td>Service date</td>
+                </tr>
+                <tr>
+                    <td>mile_age</td>
+                    <td>varchar(20)</td>
+                    <td>NULL</td>
+                    <td>Vehicle mileage</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Record creation timestamp</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>3. Service Management</h2>
+            
+            <h3>tbl_services</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>service_id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>service_name</td>
+                    <td>varchar(255)</td>
+                    <td>NOT NULL</td>
+                    <td>Name of the service</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>text</td>
+                    <td>NULL</td>
+                    <td>Service description</td>
+                </tr>
+                <tr>
+                    <td>price</td>
+                    <td>decimal(10,2)</td>
+                    <td>NULL</td>
+                    <td>Service price</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td>enum('active','inactive')</td>
+                    <td>NULL</td>
+                    <td>Service status</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Record creation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>tbl_service_history</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>history_id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>vehicle_id</td>
+                    <td>int(11)</td>
+                    <td>NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_vehicles</td>
+                </tr>
+                <tr>
+                    <td>service_id</td>
+                    <td>int(11)</td>
+                    <td>NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_services</td>
+                </tr>
+                <tr>
+                    <td>service_date</td>
+                    <td>date</td>
+                    <td>NULL</td>
+                    <td>Date of service</td>
+                </tr>
+                <tr>
+                    <td>notes</td>
+                    <td>text</td>
+                    <td>NULL</td>
+                    <td>Service notes</td>
+                </tr>
+                <tr>
+                    <td>cost</td>
+                    <td>decimal(10,2)</td>
+                    <td>NULL</td>
+                    <td>Service cost</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Record creation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>tbl_appointments</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>appointment_id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>user_id</td>
+                    <td>int(11)</td>
+                    <td>NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_user</td>
+                </tr>
+                <tr>
+                    <td>service_id</td>
+                    <td>int(11)</td>
+                    <td>NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_services</td>
+                </tr>
+                <tr>
+                    <td>appointment_date</td>
+                    <td>date</td>
+                    <td>NULL</td>
+                    <td>Appointment date</td>
+                </tr>
+                <tr>
+                    <td>appointment_time</td>
+                    <td>time</td>
+                    <td>NULL</td>
+                    <td>Appointment time</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td>enum('pending','confirmed','completed','cancelled')</td>
+                    <td>NULL</td>
+                    <td>Appointment status</td>
+                </tr>
+                <tr>
+                    <td>notes</td>
+                    <td>text</td>
+                    <td>NULL</td>
+                    <td>Appointment notes</td>
+                </tr>
+                <tr>
+                    <td>worker_id</td>
+                    <td>int(11)</td>
+                    <td>NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_worker</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Record creation timestamp</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>4. Product Management</h2>
+            
+            <h3>tbl_products</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>varchar(255)</td>
+                    <td>NOT NULL</td>
+                    <td>Product name</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>text</td>
+                    <td>NULL</td>
+                    <td>Product description</td>
+                </tr>
+                <tr>
+                    <td>price</td>
+                    <td>decimal(10,2)</td>
+                    <td>NOT NULL</td>
+                    <td>Product price</td>
+                </tr>
+                <tr>
+                    <td>category_id</td>
+                    <td>int(11)</td>
+                    <td>NULL, FOREIGN KEY</td>
+                    <td>Reference to category</td>
+                </tr>
+                <tr>
+                    <td>stock</td>
+                    <td>int(11)</td>
+                    <td>NULL</td>
+                    <td>Available stock</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td>enum('active','inactive')</td>
+                    <td>NULL</td>
+                    <td>Product status</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Record creation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>tbl_categories</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>varchar(255)</td>
+                    <td>NOT NULL</td>
+                    <td>Category name</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>text</td>
+                    <td>NULL</td>
+                    <td>Category description</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td>enum('active','inactive')</td>
+                    <td>NULL</td>
+                    <td>Category status</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Record creation timestamp</td>
+                </tr>
+                <tr>
+                    <td>updated_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Last update timestamp</td>
+                </tr>
+            </table>
+
+            <h3>tbl_cart</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>user_id</td>
+                    <td>int(11)</td>
+                    <td>NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_user</td>
+                </tr>
+                <tr>
+                    <td>product_id</td>
+                    <td>int(11)</td>
+                    <td>NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_products</td>
+                </tr>
+                <tr>
+                    <td>quantity</td>
+                    <td>int(11)</td>
+                    <td>NULL</td>
+                    <td>Quantity in cart</td>
+                </tr>
+                <tr>
+                    <td>added_date</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Item addition timestamp</td>
+                </tr>
+            </table>
+
+            <h3>tbl_wishlist</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>user_id</td>
+                    <td>int(11)</td>
+                    <td>NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_user</td>
+                </tr>
+                <tr>
+                    <td>product_id</td>
+                    <td>int(11)</td>
+                    <td>NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_products</td>
+                </tr>
+                <tr>
+                    <td>added_date</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Item addition timestamp</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>5. Content Management</h2>
+            
+            <h3>tbl_blog</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>varchar(255)</td>
+                    <td>NOT NULL</td>
+                    <td>Blog post title</td>
+                </tr>
+                <tr>
+                    <td>writer</td>
+                    <td>varchar(100)</td>
+                    <td>NOT NULL</td>
+                    <td>Author name</td>
+                </tr>
+                <tr>
+                    <td>content</td>
+                    <td>text</td>
+                    <td>NULL</td>
+                    <td>Blog content</td>
+                </tr>
+                <tr>
+                    <td>image_url</td>
+                    <td>varchar(255)</td>
+                    <td>NULL</td>
+                    <td>Featured image URL</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td>varchar(20)</td>
+                    <td>NULL</td>
+                    <td>Post status</td>
+                </tr>
+                <tr>
+                    <td>date</td>
+                    <td>datetime</td>
+                    <td>NULL</td>
+                    <td>Publication date</td>
+                </tr>
+            </table>
+
+            <h3>tbl_blog_comments</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>blog_id</td>
+                    <td>int(11)</td>
+                    <td>NOT NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_blog</td>
+                </tr>
+                <tr>
+                    <td>comment</td>
+                    <td>text</td>
+                    <td>NOT NULL</td>
+                    <td>Comment content</td>
+                </tr>
+                <tr>
+                    <td>parent_id</td>
+                    <td>int(11)</td>
+                    <td>NULL, FOREIGN KEY</td>
+                    <td>Reference to parent comment</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>datetime</td>
+                    <td>NULL</td>
+                    <td>Comment creation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>tbl_tiktok_videos</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>video_url</td>
+                    <td>varchar(255)</td>
+                    <td>NOT NULL</td>
+                    <td>TikTok video URL</td>
+                </tr>
+                <tr>
+                    <td>video_id</td>
+                    <td>varchar(100)</td>
+                    <td>NOT NULL</td>
+                    <td>TikTok video ID</td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>varchar(255)</td>
+                    <td>NULL</td>
+                    <td>Video title</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>text</td>
+                    <td>NULL</td>
+                    <td>Video description</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Record creation timestamp</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>6. System Management</h2>
+            
+            <h3>permissions</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>permission_name</td>
+                    <td>varchar(100)</td>
+                    <td>NOT NULL, UNIQUE</td>
+                    <td>Name of the permission</td>
+                </tr>
+                <tr>
+                    <td>permission_description</td>
+                    <td>text</td>
+                    <td>NULL</td>
+                    <td>Permission description</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Record creation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>role_permissions</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>role_id</td>
+                    <td>int(11)</td>
+                    <td>NOT NULL, FOREIGN KEY</td>
+                    <td>Reference to roles</td>
+                </tr>
+                <tr>
+                    <td>permission_id</td>
+                    <td>int(11)</td>
+                    <td>NOT NULL, FOREIGN KEY</td>
+                    <td>Reference to permissions</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Record creation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>activity_log</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>user_id</td>
+                    <td>int(11)</td>
+                    <td>NULL</td>
+                    <td>User who performed the action</td>
+                </tr>
+                <tr>
+                    <td>action</td>
+                    <td>varchar(255)</td>
+                    <td>NOT NULL</td>
+                    <td>Action performed</td>
+                </tr>
+                <tr>
+                    <td>details</td>
+                    <td>text</td>
+                    <td>NULL</td>
+                    <td>Action details</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Activity timestamp</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>7. Communication</h2>
+            
+            <h3>tbl_message</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>varchar(255)</td>
+                    <td>NULL</td>
+                    <td>Sender's name</td>
+                </tr>
+                <tr>
+                    <td>email</td>
+                    <td>varchar(255)</td>
+                    <td>NULL</td>
+                    <td>Sender's email</td>
+                </tr>
+                <tr>
+                    <td>subject</td>
+                    <td>varchar(255)</td>
+                    <td>NULL</td>
+                    <td>Message subject</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td>enum('read','unread')</td>
+                    <td>NULL</td>
+                    <td>Message status</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Message creation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>tbl_notifications</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>type</td>
+                    <td>varchar(50)</td>
+                    <td>NULL</td>
+                    <td>Notification type</td>
+                </tr>
+                <tr>
+                    <td>reference_id</td>
+                    <td>int(11)</td>
+                    <td>NULL</td>
+                    <td>Reference to related record</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>text</td>
+                    <td>NULL</td>
+                    <td>Notification message</td>
+                </tr>
+                <tr>
+                    <td>recipient_id</td>
+                    <td>int(11)</td>
+                    <td>NULL, FOREIGN KEY</td>
+                    <td>Recipient user ID</td>
+                </tr>
+                <tr>
+                    <td>is_read</td>
+                    <td>tinyint(1)</td>
+                    <td>NULL</td>
+                    <td>Read status</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Notification creation timestamp</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>8. Reporting System</h2>
+            
+            <h3>tbl_reports</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>report_id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>report_type</td>
+                    <td>varchar(50)</td>
+                    <td>NOT NULL</td>
+                    <td>Type of report (sales, services, etc.)</td>
+                </tr>
+                <tr>
+                    <td>start_date</td>
+                    <td>date</td>
+                    <td>NOT NULL</td>
+                    <td>Report start date</td>
+                </tr>
+                <tr>
+                    <td>end_date</td>
+                    <td>date</td>
+                    <td>NOT NULL</td>
+                    <td>Report end date</td>
+                </tr>
+                <tr>
+                    <td>format</td>
+                    <td>varchar(10)</td>
+                    <td>NOT NULL</td>
+                    <td>Report format (html, pdf, csv, excel)</td>
+                </tr>
+                <tr>
+                    <td>file_path</td>
+                    <td>varchar(255)</td>
+                    <td>NULL</td>
+                    <td>Path to stored report file</td>
+                </tr>
+                <tr>
+                    <td>admin_id</td>
+                    <td>int(11)</td>
+                    <td>NOT NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_admin</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Report generation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>tbl_report_parameters</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>parameter_id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>report_id</td>
+                    <td>int(11)</td>
+                    <td>NOT NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_reports</td>
+                </tr>
+                <tr>
+                    <td>parameter_name</td>
+                    <td>varchar(50)</td>
+                    <td>NOT NULL</td>
+                    <td>Name of the parameter</td>
+                </tr>
+                <tr>
+                    <td>parameter_value</td>
+                    <td>text</td>
+                    <td>NULL</td>
+                    <td>Value of the parameter</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Parameter creation timestamp</td>
+                </tr>
+            </table>
+
+            <h3>tbl_report_schedules</h3>
+            <table>
+                <tr>
+                    <th>Column</th>
+                    <th>Data Type</th>
+                    <th>Constraints</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>schedule_id</td>
+                    <td>int(11)</td>
+                    <td>PRIMARY KEY, AUTO_INCREMENT</td>
+                    <td>Unique identifier</td>
+                </tr>
+                <tr>
+                    <td>report_type</td>
+                    <td>varchar(50)</td>
+                    <td>NOT NULL</td>
+                    <td>Type of report to generate</td>
+                </tr>
+                <tr>
+                    <td>schedule_name</td>
+                    <td>varchar(100)</td>
+                    <td>NOT NULL</td>
+                    <td>Name of the schedule</td>
+                </tr>
+                <tr>
+                    <td>frequency</td>
+                    <td>enum('daily','weekly','monthly','yearly')</td>
+                    <td>NOT NULL</td>
+                    <td>Report generation frequency</td>
+                </tr>
+                <tr>
+                    <td>format</td>
+                    <td>varchar(10)</td>
+                    <td>NOT NULL</td>
+                    <td>Report format</td>
+                </tr>
+                <tr>
+                    <td>recipients</td>
+                    <td>text</td>
+                    <td>NULL</td>
+                    <td>Email recipients (comma-separated)</td>
+                </tr>
+                <tr>
+                    <td>last_run</td>
+                    <td>timestamp</td>
+                    <td>NULL</td>
+                    <td>Last execution timestamp</td>
+                </tr>
+                <tr>
+                    <td>next_run</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Next execution timestamp</td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td>enum('active','inactive')</td>
+                    <td>NOT NULL</td>
+                    <td>Schedule status</td>
+                </tr>
+                <tr>
+                    <td>created_by</td>
+                    <td>int(11)</td>
+                    <td>NOT NULL, FOREIGN KEY</td>
+                    <td>Reference to tbl_admin</td>
+                </tr>
+                <tr>
+                    <td>created_at</td>
+                    <td>timestamp</td>
+                    <td>NOT NULL</td>
+                    <td>Schedule creation timestamp</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="note">
+            <strong>Note:</strong> This documentation represents the complete database structure. The database uses proper indexing, foreign key relationships, and timestamp tracking for audit purposes. All tables follow consistent naming conventions and include appropriate constraints for data integrity. The reporting system supports multiple report types, formats, and scheduled report generation.
+        </div>
+    </div>
+</body>
+</html> 

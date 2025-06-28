@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Example</title>
+    <style>/* Popup container */
+        .popup {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        
+        /* Popup content */
+        .popup-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+        
+        /* Close button */
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        </style>
+</head>
+<body>
+    <img src="image1.jpg" alt="Image 1" class="popup-image" data-description="Description for Image 1" data-learn="Point 1,Point 2" style="cursor:pointer; width: 200px; height: auto;">
+    <img src="image2.jpg" alt="Image 2" class="popup-image" data-description="Description for Image 2" data-learn="Point A,Point B" style="cursor:pointer; width: 200px; height: auto;">
+    <img src="image3.jpg" alt="Image 3" class="popup-image" data-description="Description for Image 3" data-learn="Point X,Point Y" style="cursor:pointer; width: 200px; height: auto;">
+    <img src="image3.jpg" alt="Image 4" class="popup-image" data-description="Description for Image " data-learn="Point X,Point Y" style="cursor:pointer; width: 200px; height: auto;">
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-button">&times;</span>
+            <section>
+                <div class="first-desc-img-sec">
+                    <div class="container">
+                        <div class="single-courses-description">
+                            <div class="fifth-decs-sec mt-32">
+                                <div class="fifth-decs-sec-wrap">
+                                    <div class="tab-content" id="description-tabContent">
+                                        <div class="tab-pane fade show active" id="description-content" role="tabpanel" tabindex="0">
+                                            <div class="description-content-wrap mt-24">
+                                                <div class="description-first-content">
+                                                    <h3 class="des-con-txt1">Details</h3>
+                                                    <div>
+                                                        <p class="des-con-txt2" id="popup-description">
+                                                            <!-- Description will be inserted here -->
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="description-second-content mt-24">
+                                                    <h3 class="des-con-txt1">What You'll Learn</h3>
+                                                    <div class="mt-12">
+                                                        <ul class="desc-learn-sec" id="popup-learn-list">
+                                                            <!-- Learning points will be inserted here -->
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="service">
+                                        <a href="_info.html">Service Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script >document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('.popup-image');
+        const popup = document.getElementById('popup');
+        const closeButton = document.querySelector('.close-button');
+        const popupDescription = document.getElementById('popup-description');
+        const popupLearnList = document.getElementById('popup-learn-list');
+    
+        images.forEach(image => {
+            image.addEventListener('click', function() {
+                // Update the popup content
+                popupDescription.innerText = image.dataset.description;
+                
+                // Clear the previous list items
+                popupLearnList.innerHTML = '';
+                // Add learning points from the data attribute
+                const learnPoints = image.dataset.learn.split(',');
+                learnPoints.forEach(point => {
+                    const li = document.createElement('li');
+                    li.innerText = point;
+                    popupLearnList.appendChild(li);
+                });
+    
+                // Show the popup
+                popup.style.display = 'block';
+            });
+        });
+    
+        closeButton.addEventListener('click', function() {
+            popup.style.display = 'none';
+        });
+    
+        window.addEventListener('click', function(event) {
+            if (event.target == popup) {
+                popup.style.display = 'none';
+            }
+        });
+    });
+    </script>
+</body>
+</html>

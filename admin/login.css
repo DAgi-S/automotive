@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap');
+
+
+/* variables */
+
+
+:root {
+  --clr-primary: #7380ec;
+  --clr-danger: #00A69C;
+  --clr-success: #35b98d;
+  --clr-white: #fff;
+  --clr-info-dark: #7d8da1;
+  --clr-info-light: #dce1eb;
+  --clr-dark: #363949;
+  --clr-warning: #df2929;
+  --clr-pending: brown;
+  --clr-light: rgba(132, 139, 200, 0.18);
+  --clr-primary-variant: #111e88;
+  --clr-dark-variant: #677483;
+  --clr-color-background: #eff1f6;
+  --clr-color-background2: #f9f9f9;
+  --clr-text-color:#3A4368;
+
+  --clr-expire: rgb(180, 43, 43);
+  --clr-expire-hover: rgb(237, 57, 57);
+
+  
+
+  --clr-sidebar-border: #00978d;
+
+  --clr-brown: rgb(186, 97, 97);
+  --clr-text-color2: rgb(105, 127, 212);
+
+  --card-border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --border-radius-2: 0.8rem;
+  --border-radius-3: 1.2rem;
+
+  --card-padding: 1.8rem;
+  --padding-1: 1.2rem;
+  --box-shadow: 0 2rem 3rem var(--clr-light);
+
+}
+
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body{
+   display: flex;
+   flex-direction: column;
+   width: 100vw;
+   min-height: 100vh;
+   font-size: .7rem;
+   user-select: none;
+   overflow-x: hidden;
+   background: var(--clr-color-background);
+   font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+h1{
+  font-weight: 800;
+  font-size: 2.4rem;
+}
+h2{
+  font-size: 1.4rem;
+}
+h3{
+  font-size: 0.87rem;
+}
+h4{
+  font-weight: 0.8rem;
+}
+h5{
+  font-size: 0.77rem;
+}
+
+
+p{
+  color: var(--clr-dark-variant);
+}
+
+.primary {
+  color: var(--clr-primary);
+}
+
+.success {
+  color: var(--clr-success);
+}
+
+.danger {
+  color: var(--clr-danger) !important;
+}
+
+.warning {
+  color: var(--clr-warning);
+}
+
+/**************************************************************************************************/
+/**************************************************************************************************/
+/***********************************   color classes **********************************************/
+/**************************************************************************************************/
+/**************************************************************************************************/
+
+/******************* status color ***********************/
+.status-pending {
+  color: brown !important;
+  font-weight: 700 !important;
+}
+
+.status-review {
+  color: rgb(255, 98, 41) !important;
+  font-weight: 700 !important;
+}
+
+.status-complete {
+  color: rgb(25, 63, 167) !important;
+  font-weight: 700 !important;
+}
+/**************** status box ******************/
+.status-box-pending {
+  background-color: brown !important;
+  color:white !important;
+  font-weight: 700 !important;
+}
+
+.status-box-review {
+  background-color: rgb(255, 98, 41) !important;
+  font-weight: 700 !important;
+  color:white !important;
+}
+
+.status-box-complete {
+  background-color: rgb(25, 63, 167) !important;
+  font-weight: 700 !important;
+  color:white !important;
+}
+
+/***************** package color ****************************/
+
+.package-status-pending {
+  color: brown !important;
+  font-weight: 700 !important;
+}
+
+.package-status-review {
+  color: rgb(255, 98, 41) !important;
+  font-weight: 700 !important;
+}
+
+.package-status-active {
+  color: rgb(25, 63, 167) !important;
+  font-weight: 700 !important;
+}
+
+.package-status-expired {
+  color: red !important;
+  font-weight: 700 !important;
+}
+
+.package-status-deactivated {
+  color: gray !important;
+  font-weight: 700 !important;
+}
+
+
+/*****************   package box*****************************/
+.package-status-box-pending {
+  background-color: brown !important;
+  font-weight: 700 !important;
+  color:white !important;
+}
+
+.package-status-box-review {
+  background-color: rgb(255, 98, 41) !important;
+  font-weight: 700 !important;
+  color:white !important;
+}
+
+.package-status-box-active {
+  background-color: rgb(25, 63, 167) !important;
+  font-weight: 700 !important;
+  color:white !important;
+}
+
+.package-status-box-expired {
+  background-color: red !important;
+  font-weight: 700 !important;
+  color:white !important;
+}
+
+.package-status-box-deactivated {
+  background-color: gray !important;
+  font-weight: 700 !important;
+  color:white !important;
+}
+
+
+/********************  invoice color *********************************/
+
+.invoice-status-paid {
+  color: rgb(25, 63, 167) !important;
+  font-weight: 700 !important;
+}
+
+.invoice-status-unpaid {
+  color: brown !important;
+  font-weight: 700 !important;
+}
+
+/********************  invoice box *********************************/
+
+.invoice-status-box-paid {
+  background-color: rgb(25, 63, 167) !important;
+  font-weight: 700 !important;
+  color:white !important;
+}
+
+.invoice-status-box-unpaid {
+  background-color: brown !important;
+  font-weight: 700 !important;
+  color:white !important;
+}
+
+/********************  user type color *********************************/
+.user-type-regular {
+  color: rgb(25, 63, 167) !important;
+  font-weight: 700 !important;
+}
+
+.user-type-staff {
+  color: brown !important;
+  font-weight: 700 !important;
+}
+
+.user-type-admin {
+  color: red !important;
+  font-weight: 700 !important;
+}
+
+/********************  user type box *********************************/
+.user-type-box-regular {
+  background-color: rgb(25, 63, 167) !important;
+  font-weight: 700 !important;
+  color:white !important;
+}
+
+.user-type-box-staff {
+  background-color: brown !important;
+  font-weight: 700 !important;
+  color:white !important;
+}
+
+.user-type-box-admin {
+  background-color: red !important;
+  font-weight: 700 !important;
+  color:white !important;
+}
+
+
+/**************************************************************************************************/
+/**************************************************************************************************/
+/***********************************    **********************************************/
+/**************************************************************************************************/
+/**************************************************************************************************/
+
+
+
+
+
+/***************************************************************************/
+/******************************** CUSTOM CSS *******************************/
+/***************************************************************************/
+
+
+main {
+    display: flex;
+    flex: 1; /* Allow main to grow and fill the available space */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+
+
+.fieldset-one label {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  text-align: left;
+  width: 100%;
+  font-weight: 550;
+  font-size: 0.9rem;
+  margin-top: 1em;
+}
+
+.fieldset-one label input {
+  width: 100%;
+  padding: 7px;
+  border-radius:0 0.4em 0.4em 0;
+  border: 0;
+  outline: 0;
+  color: var(--clr-dark);
+  font-weight: 550;
+}
+
+.fieldset-two {
+  margin: 1.6rem 0 1.7rem 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+/******************************   Login CSS    ***********************************************/
+/**********************************************************************************************************/
+/**********************************************************************************************************/
+
+
+
+
+div.login-main {
+  width: 50%;
+  margin: auto;
+  background-color: var(--clr-white);
+  margin:1em;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 1rem var(--clr-light);
+  overflow: auto;
+}
+
+.login-main form {
+  padding: 2rem 3rem;
+}
+
+
+.login-main input[type="submit"] {
+  background-color: #3C91E6;
+  color: var(--clr-white);
+  width: 20%;
+  margin: 2rem auto 1rem auto;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-main input[type="submit"]:hover {
+  background-color: #5badff;
+}
+
+.login-main input[type="submit"]:active {
+  background-color: #3C91E6;
+}
+
+.login-main h1 {
+  text-align: center;
+  background-color: white;
+  color: #3A4368;
+  padding: 2rem 1rem 0 1rem;
+  margin-bottom: -1.5rem;
+}
+
+
+
+.login-main input[type="text"], .login-main input[type="password"] {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  margin-top: 0.4rem;
+  border: 1px solid lightgray;
+  border-left: none;
+  background-color: none !important;
+}
+
+.login-main input::placeholder {
+  font-weight: 500;
+  color: rgb(172, 172, 172);
+}
+
+.login-span-icons{
+  font-size: 1.4em;
+  padding: 0.8rem;
+  margin-top: 0.4rem;
+  border: 1px solid lightgray;
+  border-right: none;
+  background-color: #3C91E6;
+  color: white;
+  border-radius: 0.4em 0 0 0.4em;
+}
+
+.login-main label {
+  margin-top: 1.5rem;
+}
+
+.login-main p {
+  font-size: 0.8rem;
+  font-weight: 550;
+  text-align: center;
+  padding-top: 1.5rem;
+  color: var(--clr-text-color);
+  margin-bottom: -1rem;
+}
+.login-main a {
+  color: var(--clr-text-color); 
+  font-size: 0.8rem;
+  font-weight: 550;
+  text-decoration: underline;
+}
+
+.login-main a:hover {
+  color: #3C91E6;
+}
+.login-main a:active {
+  color: #5badff;
+}
+
+/* **************
+MEDIA QUERY
+****************/
+
+@media screen and (max-width:1200px) {
+    div.login-main {
+        width: 60%;
+    }
+}
+
+/* ****************
+MEDIA QUERY PHONE
+************************/
+
+@media screen and (max-width:768px) {
+
+    div.login-main {
+        width: 90%;
+    }
+
+    .login-main form {
+      padding: 2rem 1.5rem;
+    }
+
+    .login-main input[type="submit"] {
+        width: auto;
+    }
+
+}
+
+@media screen and (max-width:500px) {
+
+    div.login-main{
+        width: 95%;
+    }
+
+    .login-main form {
+      padding: 2rem 1.5rem;
+    }
+
+}

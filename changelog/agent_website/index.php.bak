@@ -1,0 +1,193 @@
+<?php 
+session_start();
+define('INCLUDED', true);
+$page_title = "Home";
+require_once 'includes/header.php'; 
+?>
+
+<!-- Hero Section -->
+<section class="hero-section position-relative d-flex align-items-center justify-content-center text-center" style="min-height: 340px; background: url('assets/images/homescreen/auto1.jpg') center/cover no-repeat;">
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(34,34,34,0.55);"></div>
+  <div class="container position-relative z-2 py-5">
+    <h1 class="display-4 fw-bold text-white mb-3">Welcome to Nati Automotive</h1>
+    <p class="lead text-white-50 mb-4">Your trusted partner for quality auto parts and professional services.</p>
+    <a class="btn btn-primary btn-lg px-4 shadow" href="ecommerce/pages/products.php">Shop Now</a>
+  </div>
+</section>
+
+<div class="container-lg my-5">
+  <!-- Featured Services -->
+  <section class="mb-5">
+    <h2 class="section-title text-center mb-4">Featured Services</h2>
+    <div class="row g-4 justify-content-center">
+      <?php
+      $featured_services = [
+        [ 'icon' => 'fa-tools', 'title' => 'Maintenance', 'description' => 'Regular maintenance and tune-ups' ],
+        [ 'icon' => 'fa-car', 'title' => 'Diagnostics', 'description' => 'Computer diagnostics and troubleshooting' ],
+        [ 'icon' => 'fa-oil-can', 'title' => 'Oil Change', 'description' => 'Professional oil change service' ]
+      ];
+      foreach ($featured_services as $service): ?>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 text-center p-3 border-0 shadow-sm">
+            <i class="fas <?php echo $service['icon']; ?> fa-2x text-primary mb-2"></i>
+            <h3 class="h6 fw-bold mb-1"><?php echo $service['title']; ?></h3>
+            <p class="small text-muted mb-2"><?php echo $service['description']; ?></p>
+            <a href="service.php" class="btn btn-sm btn-outline-primary">Learn More</a>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </section>
+
+  <!-- Latest Products -->
+  <section class="mb-5">
+    <h2 class="section-title text-center mb-4">Latest Products</h2>
+    <div class="row g-4 justify-content-center">
+      <?php
+      $latest_products = [
+        [ 'image' => 'assets/img/products/brake-pads.jpg', 'title' => 'Premium Brake Pads', 'price' => '89.99' ],
+        [ 'image' => 'assets/img/products/oil-filter.jpg', 'title' => 'Oil Filter', 'price' => '12.99' ],
+        [ 'image' => 'assets/img/products/spark-plugs.jpg', 'title' => 'Spark Plugs Set', 'price' => '45.99' ]
+      ];
+      foreach ($latest_products as $product): ?>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="img-container mb-2" style="height:160px;overflow:hidden;">
+              <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['title']; ?>" class="w-100 h-100 object-fit-cover rounded-top" onerror="this.src='assets/images/Nati-logo.png';">
+            </div>
+            <div class="card-body p-2">
+              <h5 class="card-title text-truncate-2 mb-1 fw-bold"><?php echo $product['title']; ?></h5>
+              <p class="card-text mb-2">Br <?php echo $product['price']; ?></p>
+              <a href="ecommerce/pages/products.php" class="btn btn-sm btn-primary w-100">View Details</a>
+            </div>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+    <div class="text-center mt-3">
+      <a href="ecommerce/pages/products.php" class="btn btn-outline-primary">View All Products</a>
+    </div>
+  </section>
+
+  <!-- Our Services (detailed) -->
+  <section class="mb-5">
+    <h2 class="section-title text-center mb-4">Our Services</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 text-center p-3 border-0 shadow-sm">
+          <i class="fas fa-cogs fa-2x text-primary mb-2"></i>
+          <h4 class="h6 fw-bold mb-1">Engine Repair</h4>
+          <p class="small text-muted">Comprehensive engine diagnostics and repair for all car models.</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 text-center p-3 border-0 shadow-sm">
+          <i class="fas fa-car-battery fa-2x text-primary mb-2"></i>
+          <h4 class="h6 fw-bold mb-1">Battery Replacement</h4>
+          <p class="small text-muted">Fast and reliable battery testing and replacement services.</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 text-center p-3 border-0 shadow-sm">
+          <i class="fas fa-tire fa-2x text-primary mb-2"></i>
+          <h4 class="h6 fw-bold mb-1">Tire Services</h4>
+          <p class="small text-muted">Tire rotation, balancing, and replacement for a smooth ride.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Blogs/News -->
+  <section class="mb-5">
+    <h2 class="section-title text-center mb-4">Latest News & Blogs</h2>
+    <div class="row g-4 justify-content-center">
+      <?php
+      include_once 'partial-front/db_con.php';
+      $db = new DB_con();
+      $result = $db->fetchAllArticles();
+      $count = 0;
+      if ($result && $result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+          if ($count >= 3) break;
+      ?>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="img-container mb-2" style="height:120px;overflow:hidden;">
+            <img src="<?php echo !empty($row['image_url']) && file_exists($row['image_url']) ? htmlspecialchars($row['image_url']) : 'assets/images/Nati-logo.png'; ?>" alt="<?php echo htmlspecialchars($row['title']); ?>" class="img_format w-100 h-100 object-fit-cover rounded-top"/>
+          </div>
+          <div class="card-body p-2">
+            <h5 class="card-title text-truncate-2 mb-1 fw-bold"><?php echo htmlspecialchars($row['title']); ?></h5>
+            <p class="card-text mb-2"><?php echo htmlspecialchars($row['s_article']); ?></p>
+            <div class="blog-meta mb-2 small text-muted">
+              <div><i class="fas fa-user"></i> <?php echo htmlspecialchars($row['writer']); ?></div>
+              <div><i class="far fa-calendar"></i> <?php echo date('M d, Y', strtotime($row['date'])); ?></div>
+            </div>
+            <a href="blog.php?blogid=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary w-100">Read More</a>
+          </div>
+        </div>
+      </div>
+      <?php $count++; }} else { ?>
+      <div class="col-12"><div class="alert alert-info">No blogs available.</div></div>
+      <?php } ?>
+    </div>
+    <div class="text-center mt-3">
+      <a href="blogs.php" class="btn btn-outline-primary">View All Blogs</a>
+    </div>
+  </section>
+
+  <!-- Shop Locations -->
+  <section class="mb-5">
+    <h2 class="section-title text-center mb-4">Our Location</h2>
+    <div class="row g-4 align-items-center justify-content-center">
+      <div class="col-12 col-md-7 mb-2 mb-md-0">
+        <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3936.239912401058!2d38.75941167486615!3d9.034430191616842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b857d6cb0f8a1%3A0xfbeec6a7bbf42148!2s2QFH%2B3FP%2C%20Addis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1597072240941!5m2!1sen!2sus" width="100%" height="180" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="col-12 col-md-5 text-center text-md-start">
+        <p class="mb-1"><strong>Address:</strong> Aware, Addis Ababa, Ethiopia</p>
+        <p class="mb-1"><strong>Phone:</strong> +251-912-2424</p>
+        <p class="mb-1"><strong>Email:</strong> info@natiauto.com</p>
+        <p class="mb-1"><strong>Contact:</strong> Nati Automotive</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe Email -->
+  <section class="mb-5">
+    <h2 class="section-title text-center mb-4">Subscribe for Updates</h2>
+    <form class="row g-2 justify-content-center" method="post" action="#">
+      <div class="col-12 col-md-6 col-lg-4">
+        <input type="email" name="subscribe_email" class="form-control" placeholder="Enter your email address" required>
+      </div>
+      <div class="col-12 col-md-2 col-lg-2">
+        <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Clients/Testimonials -->
+  <section class="mb-5">
+    <h2 class="section-title text-center mb-4">Our Clients</h2>
+    <div class="row text-center align-items-center justify-content-center g-4">
+      <div class="col-6 col-md-3 col-lg-2">
+        <img src="assets/images/single-courses/client1.png" alt="Client 1" class="img-fluid rounded-circle shadow-sm" style="max-width:80px;">
+        <div class="mt-2 small">Ami Jackson</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2">
+        <img src="assets/images/single-courses/client3.png" alt="Client 2" class="img-fluid rounded-circle shadow-sm" style="max-width:80px;">
+        <div class="mt-2 small">Laura Flemo</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2">
+        <img src="assets/images/single-courses/client4.png" alt="Client 3" class="img-fluid rounded-circle shadow-sm" style="max-width:80px;">
+        <div class="mt-2 small">Caity Laurance</div>
+      </div>
+      <div class="col-6 col-md-3 col-lg-2">
+        <img src="assets/images/single-mentor/client-img.png" alt="Client 4" class="img-fluid rounded-circle shadow-sm" style="max-width:80px;">
+        <div class="mt-2 small">Claire Joe</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<?php require_once 'includes/footer.php'; ?>

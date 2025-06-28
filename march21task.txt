@@ -1,0 +1,193 @@
+# Service Ordering Workflow Enhancement Tasks
+Last Updated: March 21, 2024
+
+## 1. Service Selection & Booking Flow Implementation
+
+### 1.1 Service Popup Enhancement
+- [ ] Create modal/popup component for service details
+  - File: service.php
+  - Add Bootstrap modal structure
+  - Include service image, description, price, and duration
+  - Style popup for both desktop and mobile views
+
+- [ ] Implement Service Information Display
+  - Add detailed service information retrieval from tbl_services
+  - Include service benefits, requirements, and pricing details
+  - Add service availability check
+
+- [ ] Order Button Integration
+  - Add 'Order Service' button in popup
+  - Implement click handler to open booking form
+  - Add loading state management
+
+## 2. Service Booking Form Development
+
+### 2.1 Vehicle Selection Component
+- [ ] Create Vehicle Selection Interface
+  ```sql
+  -- Required Database Updates
+  ALTER TABLE tbl_vehicles
+  ADD COLUMN last_service_date DATE,
+  ADD COLUMN service_history_id INT;
+  ```
+  
+- [ ] Quick Vehicle Addition Form
+  - Implement brand/model dynamic dropdown
+  - Add year selection
+  - License plate validation
+  - Integration with existing vehicle database
+
+### 2.2 Multi-Service Selection
+- [ ] Implement Service Selection Interface
+  - Create multi-select component
+  - Add service dependency checks
+  - Calculate total time and cost
+  - Show service conflicts if any
+
+### 2.3 Appointment Scheduling
+- [ ] Date-Time Picker Implementation
+  - Add date picker with available slots
+  - Implement time slot availability check
+  - Block out unavailable times
+  - Show worker availability
+
+### 2.4 Form Components
+- [ ] Additional Fields
+  - Customer notes text area
+  - Service priority selection
+  - Preferred worker selection (optional)
+  - File upload for vehicle issues (optional)
+
+## 3. Admin & Database Integration
+
+### 3.1 Database Updates
+```sql
+-- Add new columns to tbl_appointments
+ALTER TABLE tbl_appointments
+ADD COLUMN multiple_services JSON,
+ADD COLUMN customer_notes TEXT,
+ADD COLUMN priority ENUM('low', 'medium', 'high'),
+ADD COLUMN status ENUM('pending', 'confirmed', 'in-progress', 'completed'),
+ADD COLUMN notification_sent BOOLEAN DEFAULT FALSE;
+
+-- Create new table for worker assignments
+CREATE TABLE tbl_worker_assignments (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    worker_id INT,
+    appointment_id INT,
+    assigned_date DATE,
+    assigned_time TIME,
+    status ENUM('assigned', 'accepted', 'completed'),
+    FOREIGN KEY (worker_id) REFERENCES tbl_worker(id),
+    FOREIGN KEY (appointment_id) REFERENCES tbl_appointments(id)
+);
+```
+
+### 3.2 Backend API Development
+- [ ] Create Appointment Handling APIs
+  - POST /api/appointments/create
+  - GET /api/appointments/availability
+  - PUT /api/appointments/update-status
+  - POST /api/appointments/assign-worker
+
+### 3.3 Admin Dashboard Updates
+- [ ] Real-time Notification System
+  - Implement WebSocket connection
+  - Add notification bell icon
+  - Create notification database table
+  - Add notification management interface
+
+## 4. User Experience Enhancements
+
+### 4.1 Mobile Responsiveness
+- [ ] Implement Responsive Design
+  - Test on various screen sizes
+  - Optimize touch interactions
+  - Ensure form usability on mobile
+  - Fix any responsive issues
+
+### 4.2 Progress Indicator
+- [ ] Create Booking Steps
+  1. Service Selection
+  2. Vehicle Information
+  3. Schedule Selection
+  4. Confirmation
+  - Add progress bar component
+  - Implement step validation
+  - Allow back navigation
+
+### 4.3 Notification System
+- [ ] Implement Multiple Notification Channels
+  ```php
+  // Notification Configuration
+  define('SMS_API_KEY', 'your_api_key');
+  define('EMAIL_TEMPLATE_PATH', 'templates/email/');
+  ```
+  - Email notification setup
+  - SMS integration
+  - Push notification for mobile
+  - In-app notifications
+
+## 5. Testing & Validation
+
+### 5.1 Form Validation
+- [ ] Implement Client-side Validation
+  - Required field checks
+  - Date/time validation
+  - Vehicle information validation
+  - Service selection validation
+
+### 5.2 Error Handling
+- [ ] Create Error Management System
+  - Form submission errors
+  - API error handling
+  - Database transaction management
+  - User feedback messages
+
+### 5.3 Testing Checklist
+- [ ] Unit Tests
+  - Form submission
+  - Date validation
+  - Service selection
+  - Vehicle validation
+
+- [ ] Integration Tests
+  - Complete booking flow
+  - Admin notification system
+  - Worker assignment
+  - Database operations
+
+## 6. Documentation
+
+### 6.1 Technical Documentation
+- [ ] Update API Documentation
+- [ ] Document Database Changes
+- [ ] Add Code Comments
+- [ ] Create Setup Guide
+
+### 6.2 User Documentation
+- [ ] Create User Guide
+- [ ] Add Help Section
+- [ ] Document Error Messages
+- [ ] Create FAQ Section
+
+## Timeline
+1. Service Selection & Booking Flow: 2 days
+2. Service Booking Form Development: 3 days
+3. Admin & Database Integration: 2 days
+4. User Experience Enhancements: 2 days
+5. Testing & Validation: 2 days
+6. Documentation: 1 day
+
+Total Estimated Time: 12 working days
+
+## Priority Order
+1. Database schema updates
+2. Basic booking form implementation
+3. Service selection and vehicle handling
+4. Appointment scheduling system
+5. Admin notification system
+6. Mobile responsiveness
+7. Testing and documentation
+
+Note: Each task should be tested individually before integration. Regular commits and pull requests should be made to track progress. 

@@ -1,0 +1,36 @@
+/* Media Queries */
+@media (max-width: 768px) {
+    .ecommerce-container {
+        padding: 0 10px;
+    }
+    
+    .filters-bar {
+        padding: 10px 0;
+    }
+    
+    .filter-button {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .product-name {
+        font-size: 13px;
+    }
+    
+    .product-price {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .cart-badge {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+} 

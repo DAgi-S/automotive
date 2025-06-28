@@ -1,0 +1,154 @@
+# Garage Management Web Application Overview
+Last Updated: March 21, 2024
+
+## 1. System Architecture
+
+### 1.1 Database Structure
+The application uses MySQL database with the following key tables:
+
+#### Core Tables:
+- tbl_user: User management and authentication
+- tbl_vehicles: Vehicle information management
+- tbl_services: Available service offerings
+- tbl_appointments: Service appointment scheduling
+- tbl_worker: Staff management
+- tbl_admin: Administrative users
+- tbl_service_history: Service records
+
+#### E-commerce Related Tables:
+- tbl_products: Product inventory
+- tbl_cart: Shopping cart functionality
+- tbl_orders: Order management
+- tbl_wishlist: User wishlist items
+- tbl_packages: Service packages
+
+#### Content Management Tables:
+- tbl_blog: Blog posts
+- tbl_blog_comments: User comments
+- tbl_blog_likes: Blog engagement
+- tbl_tiktok_videos: Social media integration
+- tbl_feedback: Customer feedback
+- tbl_message: Internal messaging
+
+### 1.2 Core Features
+
+#### User Management:
+- User registration and authentication
+- Profile management
+- Role-based access control (Admin, Staff, Customers)
+
+#### Vehicle Management:
+- Vehicle registration and tracking
+- Multiple vehicle support per user
+- Vehicle service history
+- Car brand and model management
+
+#### Service Management:
+- Service appointment scheduling
+- Service package offerings
+- Real-time availability checking
+- Service history tracking
+- Worker assignment
+
+#### E-commerce Features:
+- Product catalog
+- Shopping cart functionality
+- Order processing
+- Wishlist management
+- Package booking
+
+#### Content Management:
+- Blog system with comments and likes
+- TikTok video integration
+- Customer feedback system
+- Internal messaging
+
+## 2. Technical Implementation
+
+### 2.1 Frontend
+- PHP-based templating system
+- Responsive design using modern CSS
+- JavaScript for dynamic interactions
+- Dark mode support
+- Mobile-friendly interface
+
+### 2.2 Backend
+- PHP-based backend
+- RESTful API architecture
+- MySQL database
+- Secure authentication system
+- File upload handling
+
+### 2.3 Security Features
+- Password hashing
+- Input sanitization
+- Prepared SQL statements
+- Session management
+- Access control
+
+## 3. Recent Updates
+- Added TikTok feed integration
+- Enhanced appointment management system
+- Improved vehicle management interface
+- Added service history tracking
+- Implemented dark mode
+
+## 4. Pending Improvements
+1. Enhanced Security:
+   - Implement two-factor authentication
+   - Regular security audits
+   - Enhanced input validation
+
+2. Performance Optimization:
+   - Database query optimization
+   - Image compression
+   - Caching implementation
+
+3. Feature Enhancements:
+   - Real-time notifications
+   - SMS/Email integration
+   - Advanced reporting system
+   - Customer loyalty program
+
+4. User Experience:
+   - Enhanced mobile responsiveness
+   - Improved appointment scheduling interface
+   - Better service tracking system
+
+## 5. Database Backup and Maintenance
+- Regular automated backups
+- Database optimization schedule
+- Log rotation and management
+
+## 6. API Integration
+- Payment gateway integration
+- SMS gateway services
+- Email service providers
+- Social media APIs
+
+## 7. Testing and Quality Assurance
+- Unit testing implementation
+- Integration testing
+- User acceptance testing
+- Security testing
+
+## 8. Documentation
+- API documentation
+- User manuals
+- Administrative guides
+- Technical documentation
+
+## 9. Deployment and Infrastructure
+- XAMPP server configuration
+- SSL/TLS implementation
+- Backup strategy
+- Monitoring tools
+
+## 10. Future Roadmap
+1. Mobile application development
+2. Advanced analytics dashboard
+3. Inventory management system
+4. Automated service reminders
+5. Integration with vehicle diagnostic systems
+
+Note: This overview is based on the current system state as of March 21, 2024. Regular updates and maintenance are ongoing to ensure optimal performance and security. 

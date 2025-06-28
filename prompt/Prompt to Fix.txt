@@ -1,0 +1,34 @@
+💡 Objective: Fix the error "Error saving form. Please try again. Invalid response format: JSON.parse: unexpected character at line 1 column 1 of the JSON data" when submitting the service form. The issue likely comes from an invalid JSON response or improper handling of server responses.
+
+📌 Prompt:
+
+"Analyze and fix the issue causing the error when saving the service form in Nati Automotive's system. The error message indicates an invalid response format while parsing JSON. Follow these steps to resolve it:
+1️⃣ Backend Fix (Server-Side Response Format):
+
+    Ensure the API handling the form submission returns a valid JSON response.
+
+    Check if the response is empty or contains unexpected characters before returning it to the frontend.
+
+    Use json_encode() (for PHP) or response.json() (for Node.js) to send proper JSON responses.
+
+    If using PHP, make sure to include header('Content-Type: application/json'); before returning the response.
+
+2️⃣ Frontend Fix (Form Submission Handling):
+
+    Ensure the frontend expects and processes JSON correctly.
+
+    Wrap the JSON parsing inside a try-catch block to handle errors gracefully.
+
+    Validate if the API is actually returning a JSON response before calling JSON.parse().
+
+    Log the API response before parsing it to check for unwanted characters or errors.
+
+3️⃣ Debugging and Testing:
+
+    Test the API response using Postman or a browser console to verify it returns valid JSON.
+
+    Add console logs before and after parsing to identify where the issue occurs.
+
+    Ensure the database is receiving and processing the data correctly before returning a response.
+
+"Apply these fixes to ensure the form submission works correctly without JSON parse errors. The goal is to make the API return a well-formatted JSON response and handle it properly on the frontend."

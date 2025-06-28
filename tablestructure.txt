@@ -1,0 +1,208 @@
+# Automotive Management System Database Structure
+
+## User Tables
+
+### tbl_user
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- name (VARCHAR(255))
+- email (VARCHAR(255), UNIQUE)
+- phonenum (VARCHAR(20))
+- password (VARCHAR(255))
+- created_at (TIMESTAMP)
+
+### tbl_admin
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- full_name (VARCHAR(255))
+- username (VARCHAR(100), UNIQUE)
+- password (VARCHAR(255))
+- position (ENUM('admin', 'superadmin'))
+- image_url (VARCHAR(255))
+- description (TEXT)
+- created_at (TIMESTAMP)
+
+### tbl_worker
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- full_name (VARCHAR(255))
+- username (VARCHAR(100), UNIQUE)
+- password (VARCHAR(255))
+- position (ENUM('worker'))
+- image_url (VARCHAR(255))
+- created_at (TIMESTAMP)
+
+## Content Tables
+
+### tbl_blog
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- title (VARCHAR(255))
+- writer (VARCHAR(100))
+- s_article (TEXT)
+- content (TEXT)
+- image_url (VARCHAR(255))
+- status (ENUM('featured', 'none'))
+- date (TIMESTAMP)
+
+### tbl_services
+- service_id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- service_name (VARCHAR(255))
+- description (TEXT)
+- price (DECIMAL(10,2))
+- duration (VARCHAR(50))
+- status (ENUM('active', 'inactive'))
+- created_at (TIMESTAMP)
+
+### tbl_package
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- name (VARCHAR(255))
+- price (DECIMAL(10,2))
+- description (TEXT)
+- status (ENUM('active', 'inactive'))
+- image_url (VARCHAR(255))
+- created_at (TIMESTAMP)
+
+## Transaction Tables
+
+### tbl_info
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- userid (INT, FOREIGN KEY -> tbl_user.id)
+- car_brand (VARCHAR(100))
+- car_model (VARCHAR(100))
+- year (VARCHAR(10))
+- service_date (DATE)
+- mile_age (VARCHAR(50))
+- oil_change (VARCHAR(10))
+- insurance (VARCHAR(10))
+- bolo (VARCHAR(10))
+- rd_wegen (VARCHAR(10))
+- yemenged_fend (VARCHAR(10))
+- created_at (TIMESTAMP)
+
+## Car Management Tables
+
+### car_brands
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- brand_name (VARCHAR(100))
+- status (ENUM('active', 'inactive'))
+- created_at (TIMESTAMP)
+
+### car_models
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- brand_id (INT, FOREIGN KEY -> car_brands.id)
+- model_name (VARCHAR(100))
+- status (ENUM('active', 'inactive'))
+- created_at (TIMESTAMP)
+
+## Appointment Tables
+
+### tbl_appointments
+- appointment_id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- user_id (INT, FOREIGN KEY -> tbl_user.id)
+- service_id (INT, FOREIGN KEY -> tbl_services.service_id)
+- appointment_date (DATE)
+- appointment_time (TIME)
+- status (ENUM('pending', 'confirmed', 'completed', 'cancelled'))
+- created_at (TIMESTAMP DEFAULT CURRENT_TIMESTAMP)
+
+## Ecommerce Tables
+
+### tbl_products
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- name (VARCHAR(255), NOT NULL)
+- description (TEXT)
+- price (DECIMAL(10,2), NOT NULL)
+- image_url (VARCHAR(255))
+- category_id (INT, FOREIGN KEY -> categories.id)
+- stock (INT, DEFAULT 0)
+- status (ENUM('active', 'inactive'), DEFAULT 'active')
+- created_at (TIMESTAMP)
+
+### tbl_orders
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- user_id (INT, FOREIGN KEY -> tbl_user.id)
+- product_id (INT, FOREIGN KEY -> tbl_products.id)
+- quantity (INT, DEFAULT 1)
+- price (DECIMAL(10,2), NOT NULL)
+- status (ENUM('pending', 'processing', 'completed', 'cancelled'), DEFAULT 'pending')
+- order_date (TIMESTAMP)
+
+### tbl_cart
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- user_id (INT, FOREIGN KEY -> tbl_user.id)
+- product_id (INT, FOREIGN KEY -> tbl_products.id)
+- quantity (INT, DEFAULT 1)
+- added_date (TIMESTAMP)
+
+### tbl_wishlist
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- user_id (INT, FOREIGN KEY -> tbl_user.id)
+- product_id (INT, FOREIGN KEY -> tbl_products.id)
+- added_date (TIMESTAMP)
+
+# Important Notes
+1. All tables use InnoDB engine for foreign key support
+2. All timestamp fields default to CURRENT_TIMESTAMP
+3. Foreign keys ensure referential integrity
+4. Appropriate indexes are created for frequently queried columns
+5. All VARCHAR fields have appropriate maximum lengths
+6. ENUM fields are used for status fields to ensure data consistency
+7. Decimal fields use (10,2) for currency values
+8. All tables include created_at timestamp for audit trails
+
+# Security Considerations
+1. Passwords are stored using secure hashing
+2. Email addresses are unique where applicable
+3. Input validation is performed at both application and database levels
+4. Foreign key constraints prevent orphaned records
+5. Status fields use ENUMs to prevent invalid values
+
+# Maintenance Guidelines
+1. Regularly backup the database
+2. Monitor table sizes and optimize as needed
+3. Keep indexes updated for performance
+4. Document any schema changes in changelog
+5. Test foreign key constraints before updates
+
+# SQL to Fix Article Table
+```sql
+-- Drop and recreate tbl_blog with correct structure
+DROP TABLE IF EXISTS tbl_blog;
+CREATE TABLE tbl_blog (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    writer VARCHAR(100) DEFAULT 'Admin',
+    s_article TEXT,
+    content TEXT,
+    image_url VARCHAR(255),
+    status ENUM('featured', 'none') DEFAULT 'none',
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+# Important Notes
+1. Always backup before modifying tables
+2. Maintain foreign key relationships
+3. Use appropriate character sets (utf8mb4_general_ci recommended)
+4. Keep indexes on frequently searched columns 
+
+# Recent Updates (v1.0.1)
+1. Fixed car_brand and year references in fetchallorder method
+2. Added proper error handling for missing car images
+3. Improved data retrieval for car information display
+4. Enhanced relationship between car_brands and car_models tables
+5. Added proper validation for car-related data 
+
+# Recent Updates (v1.0.2)
+1. Removed notes column from tbl_appointments
+2. Added proper foreign key constraints for user_id and service_id
+3. Added appointment_time field for better scheduling
+4. Added status tracking for appointment management
+5. Added created_at timestamp for audit tracking
+
+# SQL to Update Appointments Table
+```sql
+ALTER TABLE tbl_appointments
+    MODIFY COLUMN appointment_id INT AUTO_INCREMENT,
+    MODIFY COLUMN status ENUM('pending', 'confirmed', 'completed', 'cancelled') DEFAULT 'pending',
+    ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ADD FOREIGN KEY (user_id) REFERENCES tbl_user(id),
+    ADD FOREIGN KEY (service_id) REFERENCES tbl_services(service_id);
+```

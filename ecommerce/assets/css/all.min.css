@@ -1,0 +1,6 @@
+/* Combined minified CSS */
+@import url('style.css');
+@import url('bootstrap.min.css');
+@import url('slick.css');
+@import url('media-query.css');
+@import url('intlTelInput.css'); 

@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Guruji - Online Learning & Educational Courses </title>
+	<link rel="icon" href="assets/images/favicon/icon.png">
+	<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/slick.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/media-query.css">
+</head>
+<body>
+	<div class="site-content">
+		<!-- Preloader start -->
+		<div class="loader-mask">
+			<div class="loader">
+			</div>
+		</div>
+		<!-- Preloader end -->
+		<!-- Header start -->
+		<header id="top-navbar" class="top-navbar"> 
+			<div class="container">
+				<div class="top-navbar_full">
+					<div class="back-btn">
+						<a href="javascript:history.go(-1)">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<mask id="mask0_330_7385" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+									<rect width="24" height="24" fill="white"></rect>
+								</mask>
+								<g mask="url(#mask0_330_7385)">
+									<path d="M15 18L9 12L15 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+								</g>
+							</svg>
+						</a>
+					</div>
+					<div class="top-navbar-title">
+						<p>Select Courses</p>
+					</div>
+					<div class="skip-btn-goal">
+						<a href="homescreen.html">
+							Skip
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="navbar-boder"></div>
+		</header>
+		<!-- Header end -->
+		<!-- Select course screen start -->
+		<section id="select-course-screen">
+			<div class="container">
+				<div class="select-course-wrap">
+					<h1 class="d-none">Hidden</h1>
+					<div class="goal-title mt-32">
+						<p>Choose at least 1 course that interests you to study now.</p>
+					</div>
+					<div class="select-course-bottom mt-32">
+						<div class="accordion" id="select-course">
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#select-course1" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-1.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">Business</span>
+												<span class="select-courses-txt2 mt-12">12,120 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course1" class="accordion-collapse collapse show" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="course" type="radio" id="course1">
+															<label class="form-check-label custom-lable-select" for="course1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="course" type="radio" id="course2">
+															<label class="form-check-label custom-lable-select" for="course2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="course" type="radio" id="course3">
+															<label class="form-check-label custom-lable-select" for="course3">
+																Management (356)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="course" type="radio" id="course4">
+															<label class="form-check-label custom-lable-select" for="course4">
+																Sales (523)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="course" type="radio" id="course5" checked>
+															<label class="form-check-label custom-lable-select" for="course5">
+																Business Strategy (3,386)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="course" type="radio" id="course6">
+															<label class="form-check-label custom-lable-select" for="course6">
+																Operation (1,815)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="course" type="radio" id="course7">
+															<label class="form-check-label custom-lable-select" for="course7">
+																Project Management (815)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="course" type="radio" id="course8">
+															<label class="form-check-label custom-lable-select" for="course8">
+																Business Law (156)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="course" type="radio" id="course9">
+															<label class="form-check-label custom-lable-select" for="course9">
+																Human Resources (652)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="course" type="radio" id="course10">
+															<label class="form-check-label custom-lable-select" for="course10">
+																E-Commerce (2,815)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="course" type="radio" id="course11">
+															<label class="form-check-label custom-lable-select" for="course11">
+																Real Estate (1,349)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="course" type="radio" id="course12">
+															<label class="form-check-label custom-lable-select" for="course12">
+																Other Business (786)
+															</label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+							<div class="accordion-item mt-16">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#select-course2" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-2.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">Science</span>
+												<span class="select-courses-txt2 mt-12">226 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course2" class="accordion-collapse collapse" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="science" type="radio" id="science1">
+															<label class="form-check-label custom-lable-select" for="science1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="science" type="radio" id="science2" checked>
+															<label class="form-check-label custom-lable-select" for="science2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="science" type="radio" id="science3">
+															<label class="form-check-label custom-lable-select" for="science3">
+																Management (356)
+															</label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+							<div class="accordion-item mt-16">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#select-course3" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-3.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">Development</span>
+												<span class="select-courses-txt2 mt-12">956 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course3" class="accordion-collapse collapse" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="development" type="radio" id="development1">
+															<label class="form-check-label custom-lable-select" for="development1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="development" type="radio" id="development2" checked>
+															<label class="form-check-label custom-lable-select" for="development2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="development" type="radio" id="development3">
+															<label class="form-check-label custom-lable-select" for="development3">
+																Management (356)
+															</label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+							<div class="accordion-item mt-16">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#select-course4" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-4.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">Finance & Accounting</span>
+												<span class="select-courses-txt2 mt-12">132 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course4" class="accordion-collapse collapse" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="account" type="radio" id="account1">
+															<label class="form-check-label custom-lable-select" for="account1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="account" type="radio" id="account2" checked>
+															<label class="form-check-label custom-lable-select" for="account2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="account" type="radio" id="account3">
+															<label class="form-check-label custom-lable-select" for="account3">
+																Management (356)
+															</label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+							<div class="accordion-item mt-16">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#select-course5" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-5.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">IT & Software</span>
+												<span class="select-courses-txt2 mt-12">356 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course5" class="accordion-collapse collapse" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="software" type="radio" id="software1">
+															<label class="form-check-label custom-lable-select" for="software1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="software" type="radio" id="software2" checked>
+															<label class="form-check-label custom-lable-select" for="software2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="software" type="radio" id="software3">
+															<label class="form-check-label custom-lable-select" for="software3">
+																Management (356)
+															</label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+							<div class="accordion-item mt-16">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#select-course6" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-6.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">Office Productivity</span>
+												<span class="select-courses-txt2 mt-12">82 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course6" class="accordion-collapse collapse" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="office" type="radio" id="office1">
+															<label class="form-check-label custom-lable-select" for="office1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="office" type="radio" id="office2" checked>
+															<label class="form-check-label custom-lable-select" for="office2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="office" type="radio" id="office3">
+															<label class="form-check-label custom-lable-select" for="office3">
+																Management (356)
+															</label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+							<div class="accordion-item mt-16">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#select-course7" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-7.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">Personal Development</span>
+												<span class="select-courses-txt2 mt-12">94 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course7" class="accordion-collapse collapse" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="personal" type="radio" id="personal1">
+															<label class="form-check-label custom-lable-select" for="personal1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="personal" type="radio" id="personal2" checked>
+															<label class="form-check-label custom-lable-select" for="personal2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="personal" type="radio" id="personal3">
+															<label class="form-check-label custom-lable-select" for="personal3">
+																Management (356)
+															</label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+							<div class="accordion-item mt-16">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#select-course8" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-8.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">Design</span>
+												<span class="select-courses-txt2 mt-12">182 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course8" class="accordion-collapse collapse" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="design" type="radio" id="design1">
+															<label class="form-check-label custom-lable-select" for="design1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="design" type="radio" id="design2" checked>
+															<label class="form-check-label custom-lable-select" for="design2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="design" type="radio" id="design3">
+															<label class="form-check-label custom-lable-select" for="design3">
+																Management (356)
+															</label>
+														</div>	
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+							<div class="accordion-item mt-16">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#select-course9" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-10.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">Marketing</span>
+												<span class="select-courses-txt2 mt-12">256 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course9" class="accordion-collapse collapse" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="market" type="radio" id="market1">
+															<label class="form-check-label custom-lable-select" for="market1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="market" type="radio" id="market2" checked>
+															<label class="form-check-label custom-lable-select" for="market2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="market" type="radio" id="market3">
+															<label class="form-check-label custom-lable-select" for="market3">
+																Management (356)
+															</label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+							<div class="accordion-item mt-16">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#select-course10" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-11.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">Lifestyle</span>
+												<span class="select-courses-txt2 mt-12">68 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course10" class="accordion-collapse collapse" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="lifestyle" type="radio" id="lifestyle1">
+															<label class="form-check-label custom-lable-select" for="lifestyle1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="lifestyle" type="radio" id="lifestyle2" checked>
+															<label class="form-check-label custom-lable-select" for="lifestyle2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="lifestyle" type="radio" id="lifestyle3">
+															<label class="form-check-label custom-lable-select" for="lifestyle3">
+																Management (356)
+															</label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+							<div class="accordion-item mt-16">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#select-course11" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-12.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">Photography & Video</span>
+												<span class="select-courses-txt2 mt-12">136 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course11" class="accordion-collapse collapse" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="video" type="radio" id="video1">
+															<label class="form-check-label custom-lable-select" for="video1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="video" type="radio" id="video2" checked>
+															<label class="form-check-label custom-lable-select" for="video2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="video" type="radio" id="video3">
+															<label class="form-check-label custom-lable-select" for="video3">
+																Management (356)
+															</label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+							<div class="accordion-item mt-16">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#select-course12" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-13.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">Health & Fitness</span>
+												<span class="select-courses-txt2 mt-12">231 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course12" class="accordion-collapse collapse" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="health1" type="radio" id="health1">
+															<label class="form-check-label custom-lable-select" for="health1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="health2" type="radio" id="health2" checked>
+															<label class="form-check-label custom-lable-select" for="health2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="health3" type="radio" id="health3">
+															<label class="form-check-label custom-lable-select" for="health3">
+																Management (356)
+															</label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+							<div class="accordion-item mt-16">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#select-course13" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-14.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">Music</span>
+												<span class="select-courses-txt2 mt-12">39 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course13" class="accordion-collapse collapse" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="Health" type="radio" id="Health1">
+															<label class="form-check-label custom-lable-select" for="Health1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="Health" type="radio" id="Health2" checked>
+															<label class="form-check-label custom-lable-select" for="Health2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="Health" type="radio" id="Health3">
+															<label class="form-check-label custom-lable-select" for="Health3">
+																Management (356)
+															</label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+							<div class="accordion-item mt-16">
+								<h2 class="accordion-header">
+									<button class="accordion-button courses-custom-btn" type="button" data-bs-toggle="collapse" data-bs-target="#select-course14" aria-expanded="true">
+										<span class="course-header">
+											<span>
+												<img src="assets/images/courses/courses-15.png" alt="course-img">
+											</span>
+											<span>
+												<span class="select-courses-txt1">Teaching & Academics</span>
+												<span class="select-courses-txt2 mt-12">98 Courses</span>
+											</span>
+										</span>
+									</button>
+								</h2>
+								<div id="select-course14" class="accordion-collapse collapse" data-bs-parent="#select-course">
+									<div class="accordion-body">
+										<div class="select-course-bottom mt-16">
+											<div class="select-course-bottom-wrap">
+												<form class="select-course-form">
+													<div class="course-list">
+														<div class="form-check change-courses-sec">
+															<input class="form-check-input custom-input-select"  name="teaching" type="radio" id="teaching1">
+															<label class="form-check-label custom-lable-select" for="teaching1">
+																Entrepreneurship (899)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec language-sel mt-12">
+															<input class="form-check-input custom-input-select"  name="teaching" type="radio" id="teaching2" checked>
+															<label class="form-check-label custom-lable-select" for="teaching2">
+																Communication (2,315)
+															</label>
+														</div>
+														<div class="form-check change-courses-sec mt-12">
+															<input class="form-check-input custom-input-select"  name="teaching" type="radio" id="teaching3">
+															<label class="form-check-label custom-lable-select" for="teaching3">
+																Management (356)
+															</label>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="select-course-bottom-border mt-16"></div>
+							</div>
+						</div>
+					</div>
+				</div>	
+				<div class="next-course mt-32">
+					<a href="homescreen.html">Next</a>
+				</div>
+			</div>		
+		</section>
+		<!-- Select course screen end -->
+	</div>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/slick.min.js"></script>
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/custom.js"></script>
+</body>
+</html>

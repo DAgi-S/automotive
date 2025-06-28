@@ -1,0 +1,134 @@
+.ad-container {
+    margin: 20px 0;
+    text-align: center;
+    overflow: hidden;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.ad-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.ad-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Home page top ad */
+.position-home_top {
+    width: 100%;
+    max-height: 250px;
+    margin-bottom: 30px;
+}
+
+/* Home page middle ad */
+.position-home_middle {
+    width: 100%;
+    max-height: 200px;
+    margin: 30px 0;
+}
+
+/* Home page bottom ad */
+.position-home_bottom {
+    width: 100%;
+    max-height: 200px;
+    margin-top: 30px;
+}
+
+/* Sidebar ad */
+.position-sidebar {
+    width: 100%;
+    max-height: 600px;
+    margin-bottom: 20px;
+}
+
+/* Service page ad */
+.position-service_page {
+    width: 100%;
+    max-height: 180px;
+    margin: 20px 0;
+}
+
+/* Location page ads */
+.position-location_top {
+    width: 100%;
+    max-height: 180px;
+    margin-bottom: 25px;
+}
+
+.position-location_bottom {
+    width: 100%;
+    max-height: 180px;
+    margin-top: 25px;
+}
+
+/* Products page ads */
+.position-products_top {
+    width: 100%;
+    max-height: 200px;
+    margin-bottom: 20px;
+}
+
+.position-products_grid {
+    width: 100%;
+    max-height: 150px;
+    margin: 15px 0;
+}
+
+.position-products_bottom {
+    width: 100%;
+    max-height: 200px;
+    margin-top: 20px;
+}
+
+/* Small section ads */
+.position-small_banner {
+    width: 100%;
+    max-height: 100px;
+    margin: 10px 0;
+}
+
+.position-mini_square {
+    width: 100%;
+    max-height: 120px;
+    margin: 10px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .ad-container {
+        margin: 15px 0;
+    }
+    
+    .position-home_top,
+    .position-home_middle,
+    .position-home_bottom,
+    .position-products_top,
+    .position-products_bottom {
+        max-height: 150px;
+    }
+    
+    .position-sidebar {
+        max-height: 300px;
+    }
+    
+    .position-service_page,
+    .position-location_top,
+    .position-location_bottom {
+        max-height: 120px;
+    }
+    
+    .position-small_banner,
+    .position-mini_square {
+        max-height: 80px;
+    }
+    
+    .position-products_grid {
+        max-height: 100px;
+    }
+} 
